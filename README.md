@@ -248,6 +248,3 @@ npm run start
 
 This project is created for Dr. Sanjay Chaurey's medical practice.
 
-## Support
-
-For issues or questions about the website, please contact the development team.
