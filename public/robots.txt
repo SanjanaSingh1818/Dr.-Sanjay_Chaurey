@@ -1,0 +1,18 @@
+# Allow all robots
+User-agent: *
+Allow: /
+
+# Disallow private files
+Disallow: /admin/
+Disallow: /.next/
+
+# Sitemap location
+Sitemap: https://drsanjaychaurey.com/sitemap.xml
+
+# Crawl delay
+Crawl-delay: 1
+
+# Google specific
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 0
