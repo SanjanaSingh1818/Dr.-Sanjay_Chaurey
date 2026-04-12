@@ -3,6 +3,11 @@
 import { motion } from 'framer-motion';
 import { Card } from '@/components/ui/card';
 import { Award, Users, Zap, Heart } from 'lucide-react';
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+} from '@/components/ui/carousel';
 
 const features = [
   {
@@ -28,68 +33,85 @@ const features = [
 ];
 
 export function ExpertiseSection() {
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.1,
-        delayChildren: 0.1,
-      },
-    },
-  };
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.5 },
-    },
-  };
-
   return (
-    <section className="py-16 md:py-20 bg-background">
-      <div className="w-full px-6 md:px-8 lg:px-12">
+    <section className="py-10 md:py-16 lg:py-20 bg-background">
+      <div className="w-full px-4 sm:px-6 md:px-8 lg:px-12">
+
+        {/* Heading */}
         <motion.div
-          className="text-center mb-12"
+          className="text-center mb-8 md:mb-12"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
         >
-          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-foreground mb-3 md:mb-4">
             Why Choose Dr. Chaurey
           </h2>
-          <p className="text-lg text-foreground/70 max-w-2xl mx-auto">
+          <p className="text-sm sm:text-base md:text-lg text-foreground/70 max-w-2xl mx-auto">
             Exceptional surgical expertise combined with compassionate, ethical patient care.
           </p>
         </motion.div>
 
-        <motion.div
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-        >
+        {/* Desktop Grid */}
+        <div className="hidden md:grid grid-cols-2 lg:grid-cols-4 gap-5 lg:gap-6">
           {features.map((feature, index) => {
             const IconComponent = feature.icon;
             return (
-              <motion.div key={index} variants={itemVariants}>
-                <Card className="h-full p-6 hover:shadow-lg transition-all border-border hover:border-primary/50 hover:bg-blue-50/30">
-                  <div className="flex flex-col items-center text-center space-y-4">
-                    <div className="bg-primary/10 p-4 rounded-lg">
-                      <IconComponent className="text-primary" size={28} />
-                    </div>
-                    <h3 className="text-lg font-bold text-foreground">{feature.title}</h3>
-                    <p className="text-sm text-foreground/70">{feature.description}</p>
+              <Card
+                key={index}
+                className="h-full p-5 lg:p-6 hover:shadow-lg transition-all border-border hover:border-primary/50 hover:bg-blue-50/30"
+              >
+                <div className="flex flex-col items-center text-center space-y-3">
+                  <div className="bg-primary/10 p-3 lg:p-4 rounded-lg">
+                    <IconComponent className="text-primary" size={24} />
                   </div>
-                </Card>
-              </motion.div>
+                  <h3 className="text-base lg:text-lg font-bold text-foreground">
+                    {feature.title}
+                  </h3>
+                  <p className="text-xs lg:text-sm text-foreground/70">
+                    {feature.description}
+                  </p>
+                </div>
+              </Card>
             );
           })}
-        </motion.div>
+        </div>
+
+        {/* Mobile Carousel */}
+        <div className="block md:hidden">
+          <Carousel
+            opts={{
+              align: 'start',
+              loop: true,
+            }}
+            className="w-full"
+          >
+            <CarouselContent className="-ml-2">
+              {features.map((feature, index) => {
+                const IconComponent = feature.icon;
+                return (
+                  <CarouselItem key={index} className="pl-2 basis-[85%]">
+                    <Card className="p-5 h-full shadow-sm border-border">
+                      <div className="flex flex-col items-center text-center space-y-3">
+                        <div className="bg-primary/10 p-3 rounded-lg">
+                          <IconComponent className="text-primary" size={22} />
+                        </div>
+                        <h3 className="text-base font-semibold text-foreground">
+                          {feature.title}
+                        </h3>
+                        <p className="text-xs text-foreground/70">
+                          {feature.description}
+                        </p>
+                      </div>
+                    </Card>
+                  </CarouselItem>
+                );
+              })}
+            </CarouselContent>
+          </Carousel>
+        </div>
+
       </div>
     </section>
   );
