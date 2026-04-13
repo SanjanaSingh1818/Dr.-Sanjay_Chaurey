@@ -20,7 +20,7 @@ export function AboutDoctorSection() {
           >
             <div className="rounded-3xl overflow-hidden shadow-xl">
               <Image
-                src="/images/dr-sanjay.jpg" // 👉 replace with actual image
+                src="/images/dr2.png" // 👉 replace with actual image
                 alt="Dr Sanjay Chaurey"
                 width={600}
                 height={700}

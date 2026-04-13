@@ -105,7 +105,7 @@ export function HeroSection() {
             className="flex justify-center items-center md:items-end w-full mt-0 order-1 md:order-2 h-full"
           >
             <Image
-              src="/images/dr.png"
+              src="/images/dr1.png"
               alt="Doctor"
               width={400}
               height={520}

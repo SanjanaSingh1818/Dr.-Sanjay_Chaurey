@@ -38,7 +38,7 @@ export default function AboutPage() {
             <div className="relative">
               <div className="rounded-2xl overflow-hidden shadow-lg">
                 <Image
-                  src="/images/dr.jpg"
+                  src="/images/dr3.png"
                   alt="Dr Sanjay Chaurey"
                   width={500}
                   height={650}
