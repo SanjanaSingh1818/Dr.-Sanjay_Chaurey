@@ -47,7 +47,7 @@ export const metadata: Metadata = {
     siteName: 'Dr. Sanjay Chaurey',
     images: [
       {
-        url: '/images/dr.png',
+        url: '/images/dr3.png',
         width: 1200,
         height: 630,
         alt: 'Dr. Sanjay Chaurey',
@@ -60,7 +60,7 @@ export const metadata: Metadata = {
     title: 'Dr. Sanjay Chaurey | Senior Consultant Surgeon',
     description: '35+ years of excellence in minimally invasive and robotic surgery',
     creator: '@DrSanjayChaurey',
-    images: ['/images/dr.png'],
+    images: ['/images/dr3.png'],
   },
   alternates: {
     canonical: 'https://drsanjaychaurey.com',
@@ -118,7 +118,7 @@ export default function RootLayout({
       "postalCode": "110017",
       "addressCountry": "IN"
     },
-    "image": "https://drsanjaychaurey.com/images/dr.png",
+    "image": "https://drsanjaychaurey.com/images/dr3.png",
     "priceRange": "$$",
     "medicalSpecialty": [
       "General Surgery",
