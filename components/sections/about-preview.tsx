@@ -20,12 +20,12 @@ export function AboutDoctorSection() {
           >
             <div className="rounded-3xl overflow-hidden shadow-xl">
               <Image
-                src="/images/dr2.png" // 👉 replace with actual image
-                alt="Dr Sanjay Chaurey"
-                width={600}
-                height={700}
-                className="w-full h-[420px] md:h-[520px] object-fit group-hover:scale-105 transition-transform duration-300"
-              />
+  src="/images/dr2.png"
+  alt="Dr Sanjay Chaurey"
+  width={600}
+  height={700}
+  className="w-full h-[420px] sm:h-[480px] md:h-[550px] object-cover object-top transition-transform duration-300"
+/>
             </div>
 
             {/* Floating badge */}
