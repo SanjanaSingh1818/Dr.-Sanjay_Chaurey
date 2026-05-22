@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
+import Image from 'next/image';
 import { Card, CardContent, CardHeader } from '@/components/ui/card';
 import {
   Dialog,
@@ -26,6 +27,7 @@ type TreatmentSlug =
 
 interface TreatmentInfo {
   title: string;
+  image: string;
   overview: string;
   symptoms: string[];
   procedure: string;
@@ -36,6 +38,7 @@ interface TreatmentInfo {
 const treatmentData: Record<TreatmentSlug, TreatmentInfo> = {
   'laparoscopic-surgery': {
     title: 'Laparoscopic (Keyhole) Surgery',
+    image: 'https://ismailshafik.net/wp-content/uploads/2025/03/Laparoscopic-Minimally-Invasive-Fibroid-Removal.png',
     overview: 'Laparoscopic surgery, also known as minimally invasive or keyhole surgery, uses small incisions and specialized instruments with a camera to perform surgical procedures with minimal tissue trauma.',
     symptoms: [
       'Abdominal pain or discomfort',
@@ -57,6 +60,7 @@ const treatmentData: Record<TreatmentSlug, TreatmentInfo> = {
   },
   'robotic-surgery': {
     title: 'Robotic-Assisted Surgery',
+    image: 'https://www.krupamayihospitals.in/wp-content/uploads/2024/01/surgery-agencies.webp',
     overview: 'Robotic surgery combines the precision of computer technology with the skill of the surgeon, providing enhanced dexterity, visualization, and control during complex surgical procedures.',
     symptoms: [
       'Complex surgical conditions',
@@ -78,6 +82,7 @@ const treatmentData: Record<TreatmentSlug, TreatmentInfo> = {
   },
   'hernia-treatment': {
     title: 'Hernia Treatment',
+    image: 'https://drabhijitgotkhinde.com/wp-content/uploads/2020/11/herniasurgerylaparo.jpg',
     overview: 'A hernia occurs when an organ pushes through a weak spot in surrounding muscle tissue. Dr. Chaurey offers comprehensive surgical and non-surgical treatment options for all types of hernias.',
     symptoms: [
       'Bulge or lump in the abdomen or groin',
@@ -98,6 +103,7 @@ const treatmentData: Record<TreatmentSlug, TreatmentInfo> = {
   },
   'anorectal-diseases': {
     title: 'Anorectal Diseases Treatment',
+    image: 'https://www.drsantoshpatilgeneralsurgeon.com/assets/images/s1.jpg',
     overview: 'Anorectal diseases include conditions affecting the rectum, anus, and surrounding areas. Dr. Chaurey provides comprehensive diagnosis and treatment with compassionate care and latest techniques.',
     symptoms: [
       'Bleeding during bowel movements',
@@ -120,6 +126,7 @@ const treatmentData: Record<TreatmentSlug, TreatmentInfo> = {
   },
   'complex-fistula-treatment': {
     title: 'Complex Fistula Treatment',
+    image: 'https://coloproctologie.com/wp-content/uploads/2023/01/Fistule-Anale-31.jpg',
     overview: 'Anal fistulas are abnormal connections between the anal canal and skin. Dr. Chaurey specializes in video-assisted techniques for complex fistulas that require specialized expertise.',
     symptoms: [
       'Pain and swelling near the anus',
@@ -141,11 +148,12 @@ const treatmentData: Record<TreatmentSlug, TreatmentInfo> = {
     recovery: 'Recovery is rapid with minimal post-operative pain. Patients can return to normal activities within 1-2 weeks. Healing continues over several weeks with excellent functional outcomes.'
   },
   'hiatal-hernia-surgery': {
-  title: 'Hiatal Hernia Surgery',
-  overview: 'Hiatal hernia occurs when a portion of the stomach pushes through the diaphragm into the chest cavity. Surgical treatment is recommended when symptoms are severe or not controlled with medication.',
-  symptoms: [
-    'Persistent acid reflux or heartburn',
-    'Difficulty swallowing',
+    title: 'Hiatal Hernia Surgery',
+    image: 'https://chblob.icloudhospital.com/images/2-Hiatal-hernia-9ae9dc67-3f4b-4ebc-bf4b-b68d6a65ce4e.jpg',
+    overview: 'Hiatal hernia occurs when a portion of the stomach pushes through the diaphragm into the chest cavity. Surgical treatment is recommended when symptoms are severe or not controlled with medication.',
+    symptoms: [
+      'Persistent acid reflux or heartburn',
+      'Difficulty swallowing',
     'Chest discomfort or pain',
     'Regurgitation of food or acid',
     'Chronic cough or throat irritation'
@@ -162,6 +170,7 @@ const treatmentData: Record<TreatmentSlug, TreatmentInfo> = {
 },
 'bariatric-surgery': {
   title: 'Bariatric (Weight Loss) Surgery',
+  image: 'https://media.healthdirect.org.au/images/inline/original/guide-to-bariatric-surgery-70c984.png',
   overview: 'Bariatric surgery is performed to help individuals with severe obesity achieve significant and sustained weight loss, improving overall health and reducing obesity-related conditions.',
   symptoms: [
     'Severe obesity (BMI > 35 or 40)',
@@ -182,6 +191,7 @@ const treatmentData: Record<TreatmentSlug, TreatmentInfo> = {
 },
 'cancer-surgery': {
   title: 'Cancer Surgery',
+  image: 'https://www.yashodahealthcare.com/blogs/wp-content/uploads/2022/02/surgical-treatment-surgery.jpg',
   overview: 'Cancer surgery involves the removal of tumors and affected tissues to treat or manage cancer. It plays a key role in diagnosis, staging, and treatment of various cancers.',
   symptoms: [
     'Unexplained weight loss',
@@ -251,86 +261,140 @@ export function TreatmentContent({ slug }: TreatmentContentProps) {
       </section>
 
       {/* Content Section */}
-      <section className="py-12 md:py-20 bg-background">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            className="space-y-12"
-            variants={containerVariants}
-            initial="hidden"
-            animate="visible"
-          >
-            {/* Overview */}
-            <motion.div variants={itemVariants}>
-              <h2 className="text-3xl font-bold text-foreground mb-4">Overview</h2>
-              <p className="text-lg text-foreground/80 leading-relaxed">{treatment.overview}</p>
-            </motion.div>
+     <section className="py-12 md:py-20 bg-background">
+  <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <motion.div
+      className="space-y-12"
+      variants={containerVariants}
+      initial="hidden"
+      animate="visible"
+    >
 
-            {/* Symptoms */}
-            <motion.div variants={itemVariants}>
-              <h2 className="text-3xl font-bold text-foreground mb-4">Symptoms & Indications</h2>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-                {treatment.symptoms.map((symptom, index) => (
-                  <div key={index} className="flex items-start gap-3">
-                    <AlertCircle className="text-accent flex-shrink-0 mt-1" size={20} />
-                    <span className="text-foreground/80">{symptom}</span>
-                  </div>
-                ))}
-              </div>
-            </motion.div>
-
-            {/* Procedure */}
-            <motion.div variants={itemVariants}>
-              <h2 className="text-3xl font-bold text-foreground mb-4">The Procedure</h2>
-              <Card className="border-border">
-                <CardContent className="pt-6">
-                  <p className="text-foreground/80 leading-relaxed">{treatment.procedure}</p>
-                </CardContent>
-              </Card>
-            </motion.div>
-
-            {/* Benefits */}
-            <motion.div variants={itemVariants}>
-              <h2 className="text-3xl font-bold text-foreground mb-4">Benefits</h2>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-                {treatment.benefits.map((benefit, index) => (
-                  <div key={index} className="flex items-start gap-3">
-                    <CheckCircle className="text-accent flex-shrink-0 mt-1" size={20} />
-                    <span className="text-foreground/80">{benefit}</span>
-                  </div>
-                ))}
-              </div>
-            </motion.div>
-
-            {/* Recovery */}
-            <motion.div variants={itemVariants}>
-              <h2 className="text-3xl font-bold text-foreground mb-4">Recovery & Aftercare</h2>
-              <Card className="bg-secondary/30 border-border">
-                <CardContent className="pt-6">
-                  <p className="text-foreground/80 leading-relaxed">{treatment.recovery}</p>
-                </CardContent>
-              </Card>
-            </motion.div>
-
-            {/* CTA */}
-            <motion.div
-              variants={itemVariants}
-              className="bg-accent/10 rounded-lg p-8 text-center border-2 border-accent/30"
-            >
-              <h3 className="text-2xl font-bold text-foreground mb-4">Ready to Schedule Your Consultation?</h3>
-              <p className="text-foreground/70 mb-6">
-                Contact Dr. Sanjay Chaurey to discuss your treatment options and take the first step toward better health.
-              </p>
-              <Button
-                size="lg"
-                onClick={() => setIsDialogOpen(true)}
-                className="bg-primary hover:bg-primary/90 text-primary-foreground"
-              >
-                Book Appointment
-              </Button>
-            </motion.div>
-          </motion.div>
+      {/* Treatment Image */}
+      <motion.div
+        variants={itemVariants}
+        className="overflow-hidden rounded-3xl shadow-xl border border-border"
+      >
+        <div className="relative w-full h-[250px] md:h-[450px]">
+          <Image
+            src={treatment.image}
+            alt={treatment.title}
+            fill
+            className="object-cover hover:scale-105 transition-transform duration-700"
+          />
         </div>
-      </section>
+      </motion.div>
+
+      {/* Overview */}
+      <motion.div variants={itemVariants}>
+        <h2 className="text-3xl font-bold text-foreground mb-4">
+          Overview
+        </h2>
+
+        <p className="text-lg text-foreground/80 leading-relaxed">
+          {treatment.overview}
+        </p>
+      </motion.div>
+
+      {/* Symptoms */}
+      <motion.div variants={itemVariants}>
+        <h2 className="text-3xl font-bold text-foreground mb-4">
+          Symptoms & Indications
+        </h2>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+          {treatment.symptoms.map((symptom, index) => (
+            <div key={index} className="flex items-start gap-3">
+              <AlertCircle
+                className="text-accent flex-shrink-0 mt-1"
+                size={20}
+              />
+
+              <span className="text-foreground/80">
+                {symptom}
+              </span>
+            </div>
+          ))}
+        </div>
+      </motion.div>
+
+      {/* Procedure */}
+      <motion.div variants={itemVariants}>
+        <h2 className="text-3xl font-bold text-foreground mb-4">
+          The Procedure
+        </h2>
+
+        <Card className="border-border">
+          <CardContent className="pt-6">
+            <p className="text-foreground/80 leading-relaxed">
+              {treatment.procedure}
+            </p>
+          </CardContent>
+        </Card>
+      </motion.div>
+
+      {/* Benefits */}
+      <motion.div variants={itemVariants}>
+        <h2 className="text-3xl font-bold text-foreground mb-4">
+          Benefits
+        </h2>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+          {treatment.benefits.map((benefit, index) => (
+            <div key={index} className="flex items-start gap-3">
+              <CheckCircle
+                className="text-accent flex-shrink-0 mt-1"
+                size={20}
+              />
+
+              <span className="text-foreground/80">
+                {benefit}
+              </span>
+            </div>
+          ))}
+        </div>
+      </motion.div>
+
+      {/* Recovery */}
+      <motion.div variants={itemVariants}>
+        <h2 className="text-3xl font-bold text-foreground mb-4">
+          Recovery & Aftercare
+        </h2>
+
+        <Card className="bg-secondary/30 border-border">
+          <CardContent className="pt-6">
+            <p className="text-foreground/80 leading-relaxed">
+              {treatment.recovery}
+            </p>
+          </CardContent>
+        </Card>
+      </motion.div>
+
+      {/* CTA */}
+      <motion.div
+        variants={itemVariants}
+        className="bg-accent/10 rounded-lg p-8 text-center border-2 border-accent/30"
+      >
+        <h3 className="text-2xl font-bold text-foreground mb-4">
+          Ready to Schedule Your Consultation?
+        </h3>
+
+        <p className="text-foreground/70 mb-6">
+          Contact Dr. Sanjay Chaurey to discuss your treatment
+          options and take the first step toward better health.
+        </p>
+
+        <Button
+          size="lg"
+          onClick={() => setIsDialogOpen(true)}
+          className="bg-primary hover:bg-primary/90 text-primary-foreground"
+        >
+          Book Appointment
+        </Button>
+      </motion.div>
+    </motion.div>
+  </div>
+</section>
 
       {/* Appointment Dialog */}
       <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>

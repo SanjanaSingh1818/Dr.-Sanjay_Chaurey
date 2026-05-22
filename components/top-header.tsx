@@ -8,7 +8,7 @@ import { useAppointment } from '@/contexts/appointment-context';
 export function TopHeader() {
   const { openAppointment } = useAppointment();
   return (
-    <div className="bg-secondary text-secondary-foreground border-b border-secondary/20 py-3.5 hidden md:block shadow-sm">
+    <div className="bg-[#0d2b47] text-secondary-foreground border-b border-secondary/20 py-3.5 hidden md:block shadow-sm">
       <div className="w-full px-6 md:px-8 lg:px-12">
         <div className="flex justify-between items-center">
           <div className="flex items-center gap-8 text-sm">

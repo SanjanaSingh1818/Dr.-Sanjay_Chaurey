@@ -28,7 +28,7 @@ const ClockIcon = () => (
 
 export function HospitalSection() {
   return (
-    <section className="bg-[#e6c0b1] py-20 relative">
+    <section className="bg-[#2f68b4]/30 py-20 relative">
 
       {/* subtle overlap effect */}
       <div className="absolute top-0 left-0 w-full h-20 bg-white rounded-b-[40px]" />

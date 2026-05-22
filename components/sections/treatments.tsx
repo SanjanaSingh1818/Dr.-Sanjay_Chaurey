@@ -80,7 +80,7 @@ export function TreatmentsSection() {
   };
 
   return (
-    <section className="py-12 md:py-16 bg-secondary/30">
+    <section className="py-12 md:py-16 bg-[#2f68b4]/30">
       <div className="w-full px-6 md:px-8 lg:px-12">
         <motion.div
           className="text-center mb-6"
