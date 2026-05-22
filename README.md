@@ -246,5 +246,5 @@ npm run start
 
 ## License
 
-This project is created for Dr. Sanjay Chaurey's medical practice.
+This project is created for Dr. Sanjay Chaurey's medical practice by Sanjana Singh
 
