@@ -54,7 +54,7 @@ const treatments = [
     slug: 'cancer-surgery',
     title: 'Cancer Surgery',
     description: 'Surgical oncology expertise',
-    image: 'https://www.universalhospitalsurat.com/wp-content/uploads/2024/01/Colon-Cancer-Surgery.jpg',
+    image: 'https://www.yashodahealthcare.com/blogs/wp-content/uploads/2022/02/surgical-treatment-surgery.jpg',
   },
 ];
 
