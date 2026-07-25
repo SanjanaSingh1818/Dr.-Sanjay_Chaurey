@@ -11,22 +11,22 @@ export function HeroSection() {
   const { openAppointment } = useAppointment();
 
   return (
-    <section className="relative overflow-hidden bg-gradient-to-br from-[#f0ddd8] via-[#e8d4cc] to-[#c9a882]">
+    <section className="relative overflow-hidden bg-gradient-to-br from-[#eef8ff] via-[#e1f1ff] to-[#cfe7fb]">
 
       {/* Background */}
-      <div className="absolute inset-0 bg-gradient-to-r from-[#f0ddd8] to-[#c9a882]" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_78%_18%,rgba(255,255,255,0.9),transparent_32%),linear-gradient(120deg,#f4fbff_0%,#d9edff_52%,#c8e4f7_100%)]" />
 
       {/* Container */}
-      <div className="relative z-10 w-full py-8 sm:py-10 lg:py-14 flex items-center md:min-h-[600px] lg:min-h-[640px]">
+      <div className="relative z-10 w-full py-10 sm:py-12 lg:py-16 flex items-center md:min-h-[600px] lg:min-h-[640px]">
 
-        <div className="grid grid-cols-1 lg:grid-cols-[1.05fr_0.9fr_1fr] items-center gap-8 lg:gap-10 xl:gap-12 w-full px-4 sm:px-6 md:px-8 lg:px-12">
+        <div className="grid grid-cols-1 lg:grid-cols-[1.05fr_0.95fr] items-center gap-10 lg:gap-14 xl:gap-20 w-full px-4 sm:px-6 md:px-8 lg:px-12">
 
           {/* LEFT - TEXT CONTENT */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5 }}
-            className="space-y-4 md:space-y-5 order-2 lg:order-1"
+            className="space-y-4 md:space-y-5 order-1"
           >
             <p className="text-[#2f68b4] font-semibold text-sm">
               Senior Consultant Surgeon • 35+ Years Experience
@@ -97,76 +97,26 @@ export function HeroSection() {
             </div>
           </motion.div>
 
-          {/* CENTER - DOCTOR IMAGE */}
+          {/* RIGHT - DOCTOR IMAGE */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.1 }}
-            className="order-1 lg:order-2 flex w-full justify-center"
+            initial={{ opacity: 0, x: 30 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.5, delay: 0.15 }}
+            className="order-2 flex w-full justify-center lg:justify-end"
           >
-            <div className="relative w-full max-w-[280px] sm:max-w-[340px] lg:max-w-[380px] xl:max-w-[420px]">
-              <div className="absolute -inset-3 rounded-[2rem] bg-white/35 shadow-[0_24px_70px_rgba(26,45,66,0.18)]" />
-              <div className="relative aspect-[4/5] overflow-hidden rounded-[1.75rem] border border-white/70 bg-white shadow-2xl">
+            <div className="relative w-full max-w-[340px] sm:max-w-[420px] lg:max-w-[520px] xl:max-w-[560px]">
+              <div className="absolute -inset-4 rounded-[2.25rem] bg-white/45 shadow-[0_30px_90px_rgba(39,103,174,0.18)]" />
+              <div className="relative aspect-[5/6] overflow-hidden rounded-[2rem] border border-white/80 bg-white shadow-2xl">
                 <Image
                   src="/images/hero-doctor.jpg"
                   alt="Dr. Sanjay Chaurey in consultation room"
                   fill
                   priority
-                  sizes="(max-width: 640px) 280px, (max-width: 1024px) 340px, 420px"
-                  className="object-cover object-[52%_42%]"
+                  sizes="(max-width: 640px) 340px, (max-width: 1024px) 420px, 560px"
+                  className="object-cover object-[52%_40%]"
                 />
               </div>
-              <div className="absolute -bottom-4 left-1/2 w-[78%] -translate-x-1/2 rounded-full bg-[#1a2d42]/20 blur-xl h-8" />
-            </div>
-          </motion.div>
-
-          {/* RIGHT - APPOINTMENT FORM */}
-          <motion.div
-            initial={{ opacity: 0, x: 30 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-            className="flex justify-center lg:justify-end w-full order-3"
-          >
-            <div className="w-full max-w-md bg-white rounded-2xl shadow-xl p-4 sm:p-6 md:p-7 border border-gray-200">
-              <h3 className="text-[20px] font-bold text-[#1a2d42] mb-5">
-                Book Consultation
-              </h3>
-
-              <div className="space-y-3">
-                <input
-                  type="text"
-                  placeholder="Patient Name"
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg text-[14px] text-gray-700 focus:outline-none focus:border-[#2f68b4] placeholder-gray-400"
-                />
-
-                <input
-                  type="tel"
-                  placeholder="Mobile Number"
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg text-[14px] text-gray-700 focus:outline-none focus:border-[#2f68b4] placeholder-gray-400"
-                />
-
-                <div className="grid grid-cols-2 gap-3">
-                  <input
-                    type="date"
-                    className="px-4 py-3 border border-gray-300 rounded-lg text-[14px] text-gray-700 focus:outline-none focus:border-[#2f68b4]"
-                  />
-                  <input
-                    type="time"
-                    className="px-4 py-3 border border-gray-300 rounded-lg text-[14px] text-gray-700 focus:outline-none focus:border-[#2f68b4]"
-                  />
-                </div>
-
-                <select className="w-full px-4 py-3 border border-gray-300 rounded-lg text-[14px] text-gray-700 focus:outline-none focus:border-[#2f68b4] bg-white">
-                  <option value="">Select Treatment</option>
-                  <option value="consultation">Consultation</option>
-                  <option value="surgery">Surgery</option>
-                  <option value="followup">Follow-up</option>
-                </select>
-
-                <button className="w-full bg-[#2f68b4] hover:bg-[#254e8f] text-white py-3 font-semibold rounded-lg transition-colors text-[15px] mt-1">
-                  Book Now
-                </button>
-              </div>
+              <div className="absolute -bottom-5 left-1/2 h-10 w-[78%] -translate-x-1/2 rounded-full bg-[#2767ae]/20 blur-xl" />
             </div>
           </motion.div>
 
