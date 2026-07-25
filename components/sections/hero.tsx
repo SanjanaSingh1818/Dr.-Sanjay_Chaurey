@@ -104,7 +104,7 @@ export function HeroSection() {
             transition={{ duration: 0.5, delay: 0.15 }}
             className="order-2 flex w-full justify-center lg:justify-end"
           >
-            <div className="relative w-full max-w-[340px] sm:max-w-[420px] lg:max-w-[520px] xl:max-w-[560px]">
+            <div className="relative w-full max-w-[320px] sm:max-w-[400px] lg:max-w-[360px] xl:max-w-[460px]">
               <div className="absolute -inset-4 rounded-[2.25rem] bg-white/45 shadow-[0_30px_90px_rgba(39,103,174,0.18)]" />
               <div className="relative aspect-[5/6] overflow-hidden rounded-[2rem] border border-white/80 bg-white shadow-2xl">
                 <Image
