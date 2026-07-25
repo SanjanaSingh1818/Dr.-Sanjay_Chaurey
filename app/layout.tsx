@@ -37,6 +37,9 @@ export const metadata: Metadata = {
   creator: 'Dr. Sanjay Chaurey',
   publisher: 'Dr. Sanjay Chaurey',
   category: 'Medical',
+  verification: {
+    google: 'ipMcyBkR0GHcLKfXyKiA1YvWxNE2JwCCgapApA90PY8',
+  },
   robots: {
     index: true,
     follow: true,
