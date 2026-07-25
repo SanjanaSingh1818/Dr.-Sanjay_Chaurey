@@ -4,6 +4,7 @@ import { Navbar } from '@/components/navbar';
 import { Footer } from '@/components/footer';
 import { Breadcrumb } from '@/components/breadcrumb';
 import { TreatmentContent } from '@/components/treatment-content';
+import { pageMetadata } from '@/lib/seo';
 
 export type TreatmentSlug = 
   | 'laparoscopic-surgery' 
@@ -12,8 +13,8 @@ export type TreatmentSlug =
   | 'anorectal-diseases' 
   | 'complex-fistula-treatment'
   | 'hiatal-hernia-surgery'
-    'bariatric-surgery'
-    'cancer-surgery';
+  | 'bariatric-surgery'
+  | 'cancer-surgery';
 
 interface TreatmentPageProps {
   params: Promise<{
@@ -23,36 +24,36 @@ interface TreatmentPageProps {
 
 const treatmentMetadata: Record<TreatmentSlug, { title: string; description: string }> = {
   'laparoscopic-surgery': {
-    title: 'Laparoscopic Surgery | Dr. Sanjay Chaurey',
-    description: 'Learn about minimally invasive laparoscopic surgery techniques and benefits.'
+    title: 'Laparoscopic Surgery in Delhi | Dr. Sanjay Chaurey',
+    description: 'Consult Dr. Sanjay Chaurey for minimally invasive laparoscopic surgery in Delhi, focused on smaller incisions, faster recovery and expert surgical care.'
   },
   'robotic-surgery': {
-    title: 'Robotic Surgery | Dr. Sanjay Chaurey',
-    description: 'Advanced robotic-assisted surgical procedures for enhanced precision.'
+    title: 'Robotic Surgery in Delhi | Dr. Sanjay Chaurey',
+    description: 'Advanced robotic-assisted surgery in Delhi by Dr. Sanjay Chaurey, Senior Consultant Surgeon with 35+ years of surgical experience.'
   },
   'hernia-treatment': {
-    title: 'Hernia Treatment | Dr. Sanjay Chaurey',
-    description: 'Comprehensive hernia repair solutions using the latest surgical techniques.'
+    title: 'Hernia Treatment in Delhi | Dr. Sanjay Chaurey',
+    description: 'Comprehensive hernia treatment and hernia repair surgery in Delhi using modern laparoscopic and minimally invasive techniques.'
   },
   'anorectal-diseases': {
-    title: 'Anorectal Diseases | Dr. Sanjay Chaurey',
-    description: 'Expert treatment of colorectal and anorectal conditions.'
+    title: 'Anorectal Disease Treatment in Delhi | Dr. Sanjay Chaurey',
+    description: 'Expert treatment for anorectal diseases in Delhi, including piles, fissure, fistula and related surgical conditions.'
   },
   'complex-fistula-treatment': {
-    title: 'Complex Fistula Treatment | Dr. Sanjay Chaurey',
-    description: 'Video-assisted treatment of complex fistulas using innovative approaches.'
+    title: 'Complex Fistula Treatment in Delhi | Dr. Sanjay Chaurey',
+    description: 'Video-assisted complex fistula treatment in Delhi by Dr. Sanjay Chaurey with a patient-focused minimally invasive approach.'
   },
   'hiatal-hernia-surgery': {
-    title: 'Hiatal Hernia Surgery | Dr. Sanjay Chaurey',
-    description: 'Specialized surgical treatment for hiatal hernias with minimal invasiveness.'
+    title: 'Hiatal Hernia Surgery in Delhi | Dr. Sanjay Chaurey',
+    description: 'Specialized hiatal hernia surgery in Delhi with minimally invasive treatment planning by Dr. Sanjay Chaurey.'
   },
   'bariatric-surgery': {
-    title: 'Bariatric Surgery | Dr. Sanjay Chaurey',
-    description: 'Effective weight loss surgery options tailored to individual needs.'
+    title: 'Bariatric Surgery in Delhi | Dr. Sanjay Chaurey',
+    description: 'Bariatric surgery consultation in Delhi with individualized surgical planning and experienced minimally invasive care.'
   },
   'cancer-surgery': {
-    title: 'Cancer Surgery | Dr. Sanjay Chaurey',
-    description: 'Surgical oncology expertise for comprehensive cancer care.'
+    title: 'Cancer Surgery in Delhi | Dr. Sanjay Chaurey',
+    description: 'Cancer surgery consultation in Delhi with experienced surgical planning and compassionate patient-centered care.'
   },
   
 };
@@ -67,16 +68,11 @@ export async function generateMetadata({
     return { title: 'Treatment Not Found' };
   }
 
-  return {
+  return pageMetadata({
     title: metadata.title,
     description: metadata.description,
-    openGraph: {
-      title: metadata.title,
-      description: metadata.description,
-      type: 'website',
-      locale: 'en_IN',
-    },
-  };
+    path: `/delhi/treatment/${slug}`,
+  });
 }
 
 export async function generateStaticParams() {

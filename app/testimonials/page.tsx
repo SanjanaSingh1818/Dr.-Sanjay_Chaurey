@@ -3,17 +3,14 @@ import { Navbar } from '@/components/navbar';
 import { Footer } from '@/components/footer';
 import { Card, CardContent } from '@/components/ui/card';
 import { Star } from 'lucide-react';
+import { pageMetadata } from '@/lib/seo';
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: 'Patient Testimonials | Dr. Sanjay Chaurey',
-  description: 'Read success stories and testimonials from patients treated by Dr. Sanjay Chaurey.',
-  openGraph: {
-    title: 'Patient Testimonials | Dr. Sanjay Chaurey',
-    description: 'Real stories from satisfied patients',
-    type: 'website',
-    locale: 'en_IN',
-  },
-};
+  description:
+    'Read patient testimonials for Dr. Sanjay Chaurey, Senior Consultant Surgeon in Delhi for laparoscopic, robotic, hernia and anorectal treatments.',
+  path: '/testimonials',
+});
 
 const testimonials = [
   {

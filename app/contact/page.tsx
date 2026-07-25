@@ -3,17 +3,14 @@ import { Navbar } from '@/components/navbar';
 import { Footer } from '@/components/footer';
 import { Mail, Phone, MapPin, Clock } from 'lucide-react';
 import { AppointmentForm } from '@/components/appointment-form';
+import { pageMetadata } from '@/lib/seo';
 
-export const metadata: Metadata = {
-  title: 'Contact | Dr. Sanjay Chaurey',
-  description: 'Get in touch with Dr. Sanjay Chaurey for appointments and inquiries.',
-  openGraph: {
-    title: 'Contact Dr. Sanjay Chaurey',
-    description: 'Schedule an appointment or contact us',
-    type: 'website',
-    locale: 'en_IN',
-  },
-};
+export const metadata: Metadata = pageMetadata({
+  title: 'Contact Dr. Sanjay Chaurey | Book Appointment in Delhi',
+  description:
+    'Book an appointment with Dr. Sanjay Chaurey at PSRI Hospital, Sheikh Sarai, New Delhi for laparoscopic, robotic, hernia and anorectal surgical care.',
+  path: '/contact',
+});
 
 export default function ContactPage() {
   return (
@@ -133,7 +130,7 @@ Sunday: Closed
                   width="100%"
                   height="400"
                   style={{ border: 0 }}
-                  allowFullScreen=""
+                  allowFullScreen
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"
                   title="Dr. Sanjay Chaurey Clinic Location"

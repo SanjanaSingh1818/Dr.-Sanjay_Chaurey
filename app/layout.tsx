@@ -1,19 +1,29 @@
-import type { Metadata } from 'next'
+import type { Metadata, Viewport } from 'next'
 import { Geist, Geist_Mono } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
 import { TopHeader } from '@/components/top-header'
 import { WhatsAppButton } from '@/components/whatsapp-button'
 import { AppointmentProvider } from '@/contexts/appointment-context'
+import { absoluteUrl, siteConfig } from '@/lib/seo'
 import './globals.css'
 
 const _geist = Geist({ subsets: ["latin"] });
 const _geistMono = Geist_Mono({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: 'Dr. Sanjay Chaurey | Senior Consultant Surgeon - Laparoscopic & Robotic Surgery',
-  description: 'Dr. Sanjay Chaurey - Senior Consultant Surgeon with 35+ years of experience in minimally invasive laparoscopic and robotic surgery, hernia repair, and anorectal treatment in Delhi.',
+  metadataBase: new URL(siteConfig.url),
+  title: {
+    default: siteConfig.title,
+    template: '%s',
+  },
+  description: siteConfig.description,
   keywords: [
     'Dr Sanjay Chaurey',
+    'Dr Sanjay Chaurey Delhi',
+    'best laparoscopic surgeon in Delhi',
+    'robotic surgeon in Delhi',
+    'hernia surgeon in Delhi',
+    'fistula treatment in Delhi',
     'Senior Consultant Surgeon',
     'Laparoscopic Surgery',
     'Robotic Surgery',
@@ -41,34 +51,29 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     locale: 'en_IN',
-    url: 'https://drsanjaychaurey.com',
-    title: 'Dr. Sanjay Chaurey | Senior Consultant Surgeon',
-    description: '35+ years of excellence in minimally invasive and robotic surgery',
-    siteName: 'Dr. Sanjay Chaurey',
+    url: siteConfig.url,
+    title: siteConfig.title,
+    description: siteConfig.description,
+    siteName: siteConfig.name,
     images: [
       {
-        url: '/images/dr3.png',
+        url: absoluteUrl(siteConfig.ogImage),
+        secureUrl: absoluteUrl(siteConfig.ogImage),
         width: 1200,
         height: 630,
-        alt: 'Dr. Sanjay Chaurey',
-        type: 'image/png',
+        alt: 'Dr. Sanjay Chaurey, Senior Consultant Surgeon in Delhi',
+        type: 'image/jpeg',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Dr. Sanjay Chaurey | Senior Consultant Surgeon',
-    description: '35+ years of excellence in minimally invasive and robotic surgery',
-    creator: '@DrSanjayChaurey',
-    images: ['/images/dr3.png'],
+    title: siteConfig.title,
+    description: siteConfig.description,
+    images: [absoluteUrl(siteConfig.ogImage)],
   },
   alternates: {
-    canonical: 'https://drsanjaychaurey.com',
-  },
-  viewport: {
-    width: 'device-width',
-    initialScale: 1,
-    maximumScale: 5,
+    canonical: siteConfig.url,
   },
   icons: {
     icon: [
@@ -97,6 +102,12 @@ export const metadata: Metadata = {
   manifest: '/site.webmanifest',
 }
 
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  maximumScale: 5,
+}
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -104,12 +115,12 @@ export default function RootLayout({
 }>) {
   const structuredData = {
     "@context": "https://schema.org",
-    "@type": "MedicalBusiness",
+    "@type": "Physician",
     "name": "Dr. Sanjay Chaurey",
-    "description": "Senior Consultant Surgeon with 35+ years of experience in minimally invasive and robotic surgery",
-    "url": "https://drsanjaychaurey.com",
-    "telephone": "+91-9971145913",
-    "email": "contact@drsanjaychaurey.com",
+    "description": siteConfig.description,
+    "url": siteConfig.url,
+    "telephone": siteConfig.phone,
+    "email": siteConfig.email,
     "address": {
       "@type": "PostalAddress",
       "streetAddress": "PSRI Hospital, J Pocket, Sheikh Sarai",
@@ -118,12 +129,20 @@ export default function RootLayout({
       "postalCode": "110017",
       "addressCountry": "IN"
     },
-    "image": "https://drsanjaychaurey.com/images/dr3.png",
+    "image": absoluteUrl(siteConfig.ogImage),
     "priceRange": "$$",
     "medicalSpecialty": [
       "General Surgery",
       "Laparoscopic Surgery",
       "Robotic Surgery"
+    ],
+    "areaServed": "Delhi NCR",
+    "availableService": [
+      "Laparoscopic Surgery",
+      "Robotic Surgery",
+      "Hernia Treatment",
+      "Anorectal Disease Treatment",
+      "Complex Fistula Treatment"
     ]
   };
 

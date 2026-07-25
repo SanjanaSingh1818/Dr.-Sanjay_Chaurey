@@ -7,17 +7,14 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from '@/components/ui/accordion';
+import { pageMetadata } from '@/lib/seo';
 
-export const metadata: Metadata = {
-  title: 'FAQs | Dr. Sanjay Chaurey',
-  description: 'Frequently asked questions about Dr. Sanjay Chaurey\'s surgical procedures and services.',
-  openGraph: {
-    title: 'FAQs | Dr. Sanjay Chaurey',
-    description: 'Common questions about surgical procedures answered',
-    type: 'website',
-    locale: 'en_IN',
-  },
-};
+export const metadata: Metadata = pageMetadata({
+  title: 'Surgery FAQs | Dr. Sanjay Chaurey',
+  description:
+    'Answers to common questions about laparoscopic surgery, robotic surgery, hernia repair, fistula treatment, recovery and appointments with Dr. Sanjay Chaurey.',
+  path: '/faqs',
+});
 
 const faqs = [
   {

@@ -7,17 +7,12 @@ import { TreatmentsSection } from '@/components/sections/treatments';
 import { AboutDoctorSection } from '@/components/sections/about-preview';
 import { HospitalSection } from '@/components/sections/testimonials';
 import {HomePatientReviews} from '@/components/sections/reviews';
+import { pageMetadata, siteConfig } from '@/lib/seo';
 
-export const metadata: Metadata = {
-  title: 'Dr. Sanjay Chaurey',
-  description: 'Dr. Sanjay Chaurey - Senior Consultant Surgeon with 35+ years of experience in minimally invasive and robotic surgery.',
-  openGraph: {
-    title: 'Dr. Sanjay Chaurey | Senior Consultant Surgeon',
-    description: 'Expert surgical care with 35+ years of experience',
-    type: 'website',
-    locale: 'en_IN',
-  },
-};
+export const metadata: Metadata = pageMetadata({
+  title: siteConfig.title,
+  description: siteConfig.description,
+});
 
 export default function Home() {
   return (

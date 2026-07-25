@@ -1,9 +1,16 @@
-'use client';
-
+import { Metadata } from 'next';
 import Image from 'next/image';
 import { Navbar } from '@/components/navbar';
 import { Footer } from '@/components/footer';
 import { Breadcrumb } from '@/components/breadcrumb';
+import { pageMetadata } from '@/lib/seo';
+
+export const metadata: Metadata = pageMetadata({
+  title: 'About Dr. Sanjay Chaurey | Senior Consultant Surgeon in Delhi',
+  description:
+    'Learn about Dr. Sanjay Chaurey, Senior Consultant Surgeon in Delhi with 35+ years of experience in laparoscopic, robotic, hernia and anorectal surgery.',
+  path: '/about',
+});
 
 export default function AboutPage() {
   return (
