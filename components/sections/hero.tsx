@@ -17,38 +17,38 @@ export function HeroSection() {
       <div className="absolute inset-0 bg-gradient-to-r from-[#f0ddd8] to-[#c9a882]" />
 
       {/* Container */}
-      <div className="relative z-10 w-full pt-4 pb-8 md:py-10 lg:py-12 flex items-center md:min-h-[520px] lg:min-h-[560px]">
+      <div className="relative z-10 w-full py-8 sm:py-10 lg:py-14 flex items-center md:min-h-[600px] lg:min-h-[640px]">
 
-        <div className="grid grid-cols-1 md:grid-cols-[1.2fr_0.9fr_1.1fr] items-start md:items-end gap-5 md:gap-4 w-full px-4 sm:px-6 md:px-8 lg:px-12">
+        <div className="grid grid-cols-1 lg:grid-cols-[1.05fr_0.9fr_1fr] items-center gap-8 lg:gap-10 xl:gap-12 w-full px-4 sm:px-6 md:px-8 lg:px-12">
 
           {/* LEFT - TEXT CONTENT */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5 }}
-            className="space-y-3 md:space-y-5 order-2 md:order-1"
+            className="space-y-4 md:space-y-5 order-2 lg:order-1"
           >
             <p className="text-[#2f68b4] font-semibold text-sm">
               Senior Consultant Surgeon • 35+ Years Experience
             </p>
 
-            <h1 className="text-[28px] sm:text-[32px] md:text-[42px] font-bold leading-tight text-[#1a2d42]">
+            <h1 className="text-[32px] sm:text-[40px] lg:text-[52px] xl:text-[58px] font-bold leading-[1.08] text-[#1a2d42]">
               Advanced Laparoscopic <br />
               <span className="text-[#2f68b4]">& Robotic Surgery</span>
             </h1>
 
-            <p className="text-[#4a5a6f] text-[14px] leading-relaxed">
+            <p className="text-[#4a5a6f] text-[15px] md:text-base leading-relaxed max-w-xl">
               Dr Sanjay Chaurey is an early adopter of minimally invasive & robotic abdominal surgery, specializing in hernia & anorectal conditions, including complex fistula treatment.
             </p>
 
             {/* Stats */}
-            <div className="flex gap-6">
+            <div className="flex gap-8">
               <div>
-                <p className="text-3xl font-bold text-[#2f68b4]">35+</p>
+                <p className="text-4xl font-bold text-[#2f68b4]">35+</p>
                 <p className="text-sm text-gray-600 font-medium">yrs of exp</p>
               </div>
               <div>
-                <p className="text-3xl font-bold text-[#2f68b4]">Expert</p>
+                <p className="text-4xl font-bold text-[#2f68b4]">Expert</p>
                 <p className="text-sm text-gray-600 font-medium">Robotic & Laparoscopic</p>
               </div>
             </div>
@@ -102,15 +102,22 @@ export function HeroSection() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.1 }}
-            className="flex justify-center items-center md:items-end w-full mt-0 order-1 md:order-2 h-full"
+            className="order-1 lg:order-2 flex w-full justify-center"
           >
-            <Image
-              src="/images/dr1.png"
-              alt="Doctor"
-              width={400}
-              height={520}
-              className="w-full h-auto object-contain max-w-[170px] sm:max-w-[240px] md:max-w-md md:self-end"
-            />
+            <div className="relative w-full max-w-[280px] sm:max-w-[340px] lg:max-w-[380px] xl:max-w-[420px]">
+              <div className="absolute -inset-3 rounded-[2rem] bg-white/35 shadow-[0_24px_70px_rgba(26,45,66,0.18)]" />
+              <div className="relative aspect-[4/5] overflow-hidden rounded-[1.75rem] border border-white/70 bg-white shadow-2xl">
+                <Image
+                  src="/images/hero-doctor.jpg"
+                  alt="Dr. Sanjay Chaurey in consultation room"
+                  fill
+                  priority
+                  sizes="(max-width: 640px) 280px, (max-width: 1024px) 340px, 420px"
+                  className="object-cover object-[52%_42%]"
+                />
+              </div>
+              <div className="absolute -bottom-4 left-1/2 w-[78%] -translate-x-1/2 rounded-full bg-[#1a2d42]/20 blur-xl h-8" />
+            </div>
           </motion.div>
 
           {/* RIGHT - APPOINTMENT FORM */}
@@ -118,9 +125,9 @@ export function HeroSection() {
             initial={{ opacity: 0, x: 30 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
-            className="flex justify-center md:justify-end md:items-end w-full mt-4 md:mt-0 order-3 h-full"
+            className="flex justify-center lg:justify-end w-full order-3"
           >
-            <div className="w-full max-w-sm md:max-w-none bg-white rounded-2xl shadow-xl p-4 sm:p-6 md:p-7 border border-gray-200">
+            <div className="w-full max-w-md bg-white rounded-2xl shadow-xl p-4 sm:p-6 md:p-7 border border-gray-200">
               <h3 className="text-[20px] font-bold text-[#1a2d42] mb-5">
                 Book Consultation
               </h3>
